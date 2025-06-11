@@ -1,0 +1,49 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SYL - Safe Your Life</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body onload="initializeMap()">
+    <div id="control-panel">
+        <div class="input-group">
+            <input type="text" id="your_name" placeholder="Seu Nome">
+        </div>
+        <div class="input-group">
+            <input type="text" id="your_id" placeholder="Seu ID">
+        </div>
+        <div class="input-group">
+            <input type="text" id="peer_name" placeholder="Nome do Amigo">
+        </div>
+        <div class="input-group">
+            <input type="text" id="peer_id" placeholder="ID do Amigo">
+        </div>
+        <div class="button-group">
+            <button class="conectar" onclick="receiveLoop(this)"><i class="fa fa-user-circle"></i> Conectar</button>
+            <button class="visualizar" id="show-users-btn"><i class="fa fa-users"></i> Visualizar Usuários</button>
+        </div>
+    </div>
+    <div id="user-list">
+        <h3>Usuários Conectados:</h3>
+        <ul id="user-list-items"></ul>
+    </div>
+    <div id="map"></div>
+
+    <!-- Modal para usuários -->
+    <div id="users-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="close-users-modal">&times;</span>
+            <h3 class="conectados">Usuários Conectados:</h3>
+            <ul id="modal-user-list-items"></ul>
+            <button class="voltar" id="close-users-modal-btn"><i class="fa fa-reply" aria-hidden="true"></i>Voltar ao Mapa</button>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
