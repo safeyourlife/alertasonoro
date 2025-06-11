@@ -1,0 +1,221 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+#control-panel {
+    background-color: rgba(255, 255, 255, 0.4); /* Fundo transparente */
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+    padding: 35px;
+    width: 150px; /* Menor largura */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-radius: 8px;
+    position: absolute;
+    top: 70px; /* Ajuste para o header */
+    left: 45px; /* Ajuste para a sidebar */
+    z-index: 999;
+}
+
+.input-group {
+    width: 100%;
+    margin: 5px 0;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 12px;
+    outline: none;
+}
+
+.input-group input:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.button-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 5px 0;
+  background: blue;
+}
+
+.button-group .conectar {
+    width: 100%;
+    padding: 5px;
+    border: none;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 5px;
+}
+
+.button-group .visualizar {
+    width: 100%;
+    padding: 5px;
+    border: none;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 5px;
+}
+
+.button-group .conectar {
+    background-color: #28a745;
+    color: white;
+}
+
+.button-group .conectar:hover {
+    background-color: #218838;
+}
+
+.button-group .visualizar {
+    background-color: #17a2b8;
+    color: white;
+}
+
+.button-group .visualizar:hover {
+    background-color: #138496;
+}
+
+#map {
+    flex-grow: 1;
+    width: 100%;
+    height: calc(100% - 60px); /* Ocupa o restante da tela */
+    position: relative;
+   
+    z-index: 998;
+}
+
+#user-list {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-top: 10px;
+    display: none;
+}
+
+#user-list.active {
+    display: block;
+}
+
+#user-list h3 {
+    margin: 0 0 10px 0;
+}
+
+.error-message {
+    color: red;
+    margin-top: 10px;
+}
+
+/* Estilo para o modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1050;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 5px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Personalização dos marcadores */
+.custom-marker {
+    width: 20px;
+    height: 20px;
+    border-radius: 10%;
+    border: 2px solid #ffffff;
+    position: absolute;
+}
+
+.custom-marker.blue {
+    background-color: blue;
+    border-radius: 50%;
+}
+
+.custom-marker.red {
+    background-color: red;
+}
+
+.pulse {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+}
+
+.custom-marker::before,
+.custom-marker::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 10%;
+    z-index: -1;
+    opacity: .4;
+    animation: pulse 1s ease-out infinite;
+}
+
+.custom-marker.blue::before,
+.custom-marker.blue::after {
+    background-color: blue;
+    border-radius: 50%;
+}
+
+.custom-marker.red::before,
+.custom-marker.red::after {
+    background-color: red;
+}
+
+@keyframes pulse {
+    100% {
+        transform: scale(2.5);
+        opacity: 0;
+    }
+}
+
+.custom-marker::after {
+    animation-delay: 1s;
+}
